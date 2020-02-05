@@ -23,5 +23,9 @@
     "see",
     "dependency",
     "npm"
-  ]
+  ],
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "os": "^0.1.1"
+  }
 }
