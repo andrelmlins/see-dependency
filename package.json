@@ -1,0 +1,28 @@
+{
+  "name": "see-dependency",
+  "version": "0.1.0",
+  "description": "See all the details of an npm dependency",
+  "main": "index.js",
+  "module": "index.js",
+  "repository": "https://github.com/andrelmlins/see-dependency",
+  "author": "André Lins <andrelucas01@hotmail.com> (https://andrelmlins.github.io/)",
+  "homepage": "https://github.com/andrelmlins/see-dependency",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "utils",
+    "inde.js",
+    "README.md"
+  ],
+  "bugs": {
+    "url": "https://github.com/andrelmlins/see-dependency/issues"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "see",
+    "dependency",
+    "npm"
+  ]
+}
