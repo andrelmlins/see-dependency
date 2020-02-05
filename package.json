@@ -1,6 +1,6 @@
 {
   "name": "see-dependency",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "See all the details of an npm dependency",
   "main": "index.js",
   "module": "index.js",
@@ -23,9 +23,5 @@
     "see",
     "dependency",
     "npm"
-  ],
-  "dependencies": {
-    "child_process": "^1.0.2",
-    "os": "^0.1.1"
-  }
+  ]
 }
