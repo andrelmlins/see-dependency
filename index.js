@@ -5,6 +5,12 @@ const os = require("os");
 
 const commandNpm = os.platform() === "win32" ? "npm.cmd" : "npm";
 
+/**
+ * Get npm command
+ * @param  {String} name Dependency name
+ * @param  {String} string Npm Registry(optional)
+ * @return {String} Npm command
+ */
 const getCommand = (name, registry) => {
   if (registry) {
     return `${commandNpm} show ${name} --json --registry ${registry}`;
@@ -13,6 +19,12 @@ const getCommand = (name, registry) => {
   }
 };
 
+/**
+ * Returns all details synchronously
+ * @param  {String} name Dependency name
+ * @param  {String} string Npm Registry(optional)
+ * @return {Object} All details of an npm dependency
+ */
 const seeSync = (name, registry) => {
   try {
     const result = execSync(getCommand(name, registry), {
@@ -28,6 +40,12 @@ const seeSync = (name, registry) => {
   }
 };
 
+/**
+ * Returns all details asynchronously
+ * @param  {String} name Dependency name
+ * @param  {String} string Npm Registry(optional)
+ * @return {Promise} Promise with all details of an npm dependency
+ */
 const see = (name, registry) =>
   new Promise((resolve, reject) =>
     exec(getCommand(name, registry), (error, stdout, stderr) => {
