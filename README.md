@@ -2,7 +2,7 @@
 
 See all the details of an npm dependency
 
-[![npm version](https://badge.fury.io/js/see-dependency.svg)](https://www.npmjs.com/package/see-dependency) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/andrelmlins/see-dependency/blob/master/LICENSE) [![Build Status](https://travis-ci.com/andrelmlins/see-dependency.svg?branch=master)](https://travis-ci.com/andrelmlins/see-dependency)
+[![npm version](https://badge.fury.io/js/see-dependency.svg)](https://www.npmjs.com/package/see-dependency) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/andrelmlins/see-dependency/blob/master/LICENSE) [![Build Status](https://travis-ci.com/andrelmlins/see-dependency.svg?branch=master)](https://travis-ci.com/andrelmlins/see-dependency) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/andrelmlins/see-dependency.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/andrelmlins/see-dependency/context:javascript)
 
 ## Install
 
