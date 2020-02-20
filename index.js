@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-const { exec, execSync } = require("child_process");
-const os = require("os");
+const { exec, execSync } = require('child_process');
+const os = require('os');
 
-const commandNpm = os.platform() === "win32" ? "npm.cmd" : "npm";
+const commandNpm = os.platform() === 'win32' ? 'npm.cmd' : 'npm';
 
 /**
  * Get npm command
@@ -30,8 +30,8 @@ const seeSync = (name, registry) => {
     const result = execSync(getCommand(name, registry), {
       cwd: process.cwd(),
       env: process.env,
-      stdio: "pipe",
-      encoding: "utf-8"
+      stdio: 'pipe',
+      encoding: 'utf-8'
     });
 
     return JSON.parse(result);
