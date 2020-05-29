@@ -1,40 +1,40 @@
 'use strict';
 
-const { exec, execSync } = require('child_process');
+const { spawnSync, spawn } = require('child_process');
 const os = require('os');
 
 const commandNpm = os.platform() === 'win32' ? 'npm.cmd' : 'npm';
 
 /**
  * Get npm command
- * @param  {String} name Dependency name
- * @param  {String} string Npm Registry(optional)
- * @return {String} Npm command
+ * @param  {string} name Dependency name
+ * @param  {string} string Npm Registry(optional)
+ * @return {Array<string>} Npm command
  */
 const getCommand = (name, registry) => {
   if (registry) {
-    return `${commandNpm} show ${name} --json --registry ${registry}`;
+    return ['show', name, '--json', '--registry', registry];
   } else {
-    return `${commandNpm} show ${name} --json`;
+    return ['show', name, '--json'];
   }
 };
 
 /**
  * Returns all details synchronously
- * @param  {String} name Dependency name
- * @param  {String} string Npm Registry(optional)
+ * @param  {string} name Dependency name
+ * @param  {string} string Npm Registry(optional)
  * @return {Object} All details of an npm dependency
  */
 const seeSync = (name, registry) => {
   try {
-    const result = execSync(getCommand(name, registry), {
+    const result = spawnSync(commandNpm, getCommand(name, registry), {
       cwd: process.cwd(),
       env: process.env,
       stdio: 'pipe',
       encoding: 'utf-8'
     });
 
-    return JSON.parse(result);
+    return JSON.parse(result.stdout);
   } catch (error) {
     return error;
   }
@@ -42,20 +42,23 @@ const seeSync = (name, registry) => {
 
 /**
  * Returns all details asynchronously
- * @param  {String} name Dependency name
- * @param  {String} string Npm Registry(optional)
+ * @param  {string} name Dependency name
+ * @param  {string} registry Npm Registry(optional)
  * @return {Promise} Promise with all details of an npm dependency
  */
 const see = (name, registry) =>
-  new Promise((resolve, reject) =>
-    exec(getCommand(name, registry), (error, stdout) => {
-      if (error) {
-        reject(error);
-        return;
-      }
+  new Promise((resolve, reject) => {
+    const child = spawn(commandNpm, getCommand(name, registry));
 
-      resolve(JSON.parse(stdout));
-    })
-  );
+    child.stdout.on('data', data => {
+      resolve(JSON.parse(data));
+    });
+
+    child.stderr.on('data', err => {
+      reject(err);
+    });
+  });
 
 module.exports = { see, seeSync };
+
+see('react-shadow-scroll').then(value => console.log(value));
