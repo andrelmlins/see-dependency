@@ -48,7 +48,7 @@ const seeSync = (name, registry) => {
  */
 const see = (name, registry) =>
   new Promise((resolve, reject) =>
-    exec(getCommand(name, registry), (error, stdout, stderr) => {
+    exec(getCommand(name, registry), (error, stdout) => {
       if (error) {
         reject(error);
         return;

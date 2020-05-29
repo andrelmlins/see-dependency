@@ -4,6 +4,7 @@
   "description": "See all the details of an npm dependency",
   "main": "index.js",
   "module": "index.js",
+  "types": "index.d.ts",
   "repository": "https://github.com/andrelmlins/see-dependency",
   "author": "André Lins <andrelucas01@hotmail.com> (https://andrelmlins.github.io/)",
   "homepage": "https://github.com/andrelmlins/see-dependency",
@@ -11,6 +12,7 @@
   "private": false,
   "files": [
     "index.js",
+    "index.d.ts",
     "README.md"
   ],
   "bugs": {
