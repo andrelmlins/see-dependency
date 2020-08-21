@@ -60,5 +60,3 @@ const see = (name, registry) =>
   });
 
 module.exports = { see, seeSync };
-
-see('react-shadow-scroll').then(value => console.log(value));
